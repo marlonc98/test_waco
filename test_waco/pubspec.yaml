@@ -10,14 +10,19 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-
+  provider: ^6.0.1
+  animations: ^2.0.1
+  flutter_svg: ^0.22.0
+  carousel_slider: ^4.0.0
+  url_launcher: ^6.0.10
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
+    - assets/benefits/
   #   - images/a_dot_ham.jpeg
-  
