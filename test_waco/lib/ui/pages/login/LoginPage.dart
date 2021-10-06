@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 CustomButton(
                   onTap: () {
-                    Navigator.pushNamed(context, RegisterPage.route);
+                    Navigator.popAndPushNamed(context, RegisterPage.route);
                   },
                   text: 'Registrarse',
                   type: TypeCustomButton.normal,
