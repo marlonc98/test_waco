@@ -1,0 +1,16 @@
+{
+  "error": "Error",
+  "helloWorld": "Hola mundo",
+  "accept": "Acceptar",
+  "yes": "Si",
+  "cancel": "Cancelar",
+  "continue": "Continuar",
+  "spanish": "Español",
+  "english": "Ingles",
+  "nextStep": "Siguitente",
+  "developedBy": "Desarrollador por Lamz Entertainment",
+  "validatorEmail": "El correo no es valido",
+  "validatorMatchField": "No coincide con el campo \"{fieldName}\"",
+  "validatorMinlength": "El campo debe tener {minLength} carácteres",
+  "d": "d"
+}

@@ -1,14 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:test_waco/domain/blocs/DrawerProvider.dart';
-import 'package:test_waco/domain/blocs/UserProvider.dart';
+import 'package:test_waco/domain/blocs/drawer/DrawerProvider.dart';
+import 'package:test_waco/domain/blocs/user/UserProvider.dart';
 import 'package:test_waco/ui/pages/home/HomePage.dart';
 import 'package:test_waco/ui/utils/route_generator.dart';
+
+import 'domain/blocs/localizations/AppLocalizations.dart';
+import 'domain/blocs/localizations/LocalizationProvider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider<LocalizationProvider>(create: (_) => new LocalizationProvider()),
         ChangeNotifierProvider<UserProvider>(create: (_) => new UserProvider()),
         ChangeNotifierProvider<DrawerProvider>(
             create: (_) => new DrawerProvider()),
@@ -29,6 +35,20 @@ class MyApp extends StatelessWidget {
               titleTextStyle: TextStyle(color: Colors.white))),
       initialRoute: HomePage.route,
       onGenerateRoute: RouteGenerator.generateRoute,
+            supportedLocales: [
+        const Locale('es', ''),
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        DefaultMaterialLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
+      locale: Provider.of<LocalizationProvider>(context).locale,
+
     );
   }
 }
