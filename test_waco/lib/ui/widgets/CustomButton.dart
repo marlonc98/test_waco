@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
     borderRadius: BorderRadius.circular(32),
   );
 
-  BoxDecoration? getFilled(){
+  BoxDecoration? getFilled() {
     switch (this.type) {
       case TypeCustomButton.normal:
         return null;
@@ -44,21 +44,23 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: Container(
-          padding: EdgeInsets.all(8.0),
-          child: Text(
-            this.text,
-            textAlign: TextAlign.center,
-            style: this.style,
-          ),
-          decoration: getFilled()
+    return InkWell(
+      onTap: this.onTap,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Container(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                this.text,
+                textAlign: TextAlign.center,
+                style: this.style,
+              ),
+              decoration: getFilled()),
         ),
+        decoration:
+            this.type == TypeCustomButton.outline ? degradeFilled : null,
       ),
-      decoration:
-          this.type == TypeCustomButton.outline ? degradeFilled : null,
     );
   }
 }

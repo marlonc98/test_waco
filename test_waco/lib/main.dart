@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_waco/domain/blocs/DrawerProvider.dart';
 import 'package:test_waco/domain/blocs/UserProvider.dart';
-import 'package:test_waco/ui/pages/HomePage.dart';
+import 'package:test_waco/ui/pages/home/HomePage.dart';
 import 'package:test_waco/ui/utils/route_generator.dart';
 
 void main() {

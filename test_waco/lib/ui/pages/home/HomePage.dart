@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:test_waco/data/repositories/benefit/HomeBenefitRepository.dart';
 import 'package:test_waco/domain/entities/noDb/Benefit.dart';
 import 'package:test_waco/ui/pages/home/widgets/Carrousel.dart';
+import 'package:test_waco/ui/pages/webview/WebViewPage.dart';
 import 'package:test_waco/ui/utils/TextStyles.dart';
 import 'package:test_waco/ui/widgets/CustomButton.dart';
 import 'package:test_waco/ui/widgets/CustomLayout.dart';
@@ -221,14 +222,14 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       IconButton(
-                          onPressed: () => launch("https://instagram.com"),
+                          onPressed: () => launch('https://www.instagram.com/waconomads'),
                           icon: SvgPicture.asset('assets/instagram.svg')),
                       Flexible(
                           child: Container(
                               margin: EdgeInsets.only(left: 16, right: 16),
                               width: MediaQuery.of(context).size.width,
                               child: CustomButton(
-                                onTap: () {},
+                                onTap: () => Navigator.of(context).pushNamed(WebViewPage.route, arguments: WebViewPage(url: 'https://wacoservices.com/en/home',)),
                                 text: 'Conocer más',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 18),

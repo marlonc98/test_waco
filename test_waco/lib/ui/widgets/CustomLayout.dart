@@ -3,6 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:test_waco/domain/blocs/DrawerProvider.dart';
+import 'package:test_waco/domain/blocs/UserProvider.dart';
+import 'package:test_waco/ui/pages/home/HomePage.dart';
+import 'package:test_waco/ui/pages/login/LoginPage.dart';
 import 'package:test_waco/ui/widgets/CustomButton.dart';
 
 class CustomLayout extends StatefulWidget {
@@ -26,8 +29,14 @@ class _CustomLayoutState extends State<CustomLayout> {
     });
   }
 
+  void _navigate(String route) {
+    Navigator.popAndPushNamed(context, route);
+    drawerProvider.toggleOpen();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
     drawerProvider = Provider.of<DrawerProvider>(context);
     return Stack(
       children: [
@@ -111,24 +120,33 @@ class _CustomLayoutState extends State<CustomLayout> {
                             height: 24,
                           ),
                           CustomButton(
-                            onTap: () {},
+                            onTap: () => _navigate(HomePage.route),
                             text: 'INICIO',
                           ),
                           SizedBox(
                             height: 16,
                           ),
                           CustomButton(
-                            onTap: () {},
+                            onTap: () => _navigate(HomePage.route),
                             text: 'BENEFICIOS',
                           ),
                           SizedBox(
                             height: 16,
                           ),
-                          CustomButton(
-                            onTap: () {},
-                            text: 'LOGIN',
-                            type: TypeCustomButton.outline,
-                          ),
+                          userProvider.user != null
+                              ? CustomButton(
+                                  onTap: () {
+                                    userProvider.logout();
+                                    drawerProvider.toggleOpen();
+                                  },
+                                  text: 'LOGOUT',
+                                  type: TypeCustomButton.outline,
+                                )
+                              : CustomButton(
+                                  onTap: () => _navigate(LoginPage.route),
+                                  text: 'LOGIN',
+                                  type: TypeCustomButton.outline,
+                                ),
                         ],
                       ),
                     )

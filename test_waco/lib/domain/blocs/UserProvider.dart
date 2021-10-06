@@ -9,4 +9,6 @@ class UserProvider with ChangeNotifier {
     this._user = user;
     notifyListeners();
   }
+
+  void logout(){}
 }
