@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "124180096807",
+    "project_id": "textwaco",
+    "storage_bucket": "textwaco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124180096807:android:d72183fbf2eb0932212b02",
+        "android_client_info": {
+          "package_name": "com.example.test_waco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124180096807-qmh38co8s9klsppr4aehsupl3bgggsjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8OQkc_zawyoEUC8Jv4WHHE4OqRnPNJRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124180096807-qmh38co8s9klsppr4aehsupl3bgggsjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
