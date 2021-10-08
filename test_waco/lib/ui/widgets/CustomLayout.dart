@@ -6,12 +6,14 @@ import 'package:test_waco/domain/blocs/drawer/DrawerProvider.dart';
 import 'package:test_waco/domain/blocs/user/UserProvider.dart';
 import 'package:test_waco/ui/pages/home/HomePage.dart';
 import 'package:test_waco/ui/pages/login/LoginPage.dart';
+import 'package:test_waco/ui/pages/posts/PostPage.dart';
 import 'package:test_waco/ui/widgets/CustomButton.dart';
 
 class CustomLayout extends StatefulWidget {
+  final Widget? bottomNavigationBar;
   static const route = '/CustomLayout';
   final Widget body;
-  CustomLayout({Key? key, required this.body});
+  CustomLayout({Key? key, required this.body, this.bottomNavigationBar});
   _CustomLayoutState createState() => _CustomLayoutState();
 }
 
@@ -73,9 +75,10 @@ class _CustomLayoutState extends State<CustomLayout> {
               ),
             ),
             backgroundColor: Colors.transparent,
-            body: widget.body),
+            body: widget.body,
+            bottomNavigationBar: widget.bottomNavigationBar),
         Material(
-          color: Colors.black.withOpacity(0.5),
+          color: Colors.black.withOpacity(0.8),
           child: InkWell(
             onTap: () => drawerProvider.toggleOpen(),
             child: AnimatedOpacity(
@@ -129,6 +132,13 @@ class _CustomLayoutState extends State<CustomLayout> {
                           CustomButton(
                             onTap: () => _navigate(HomePage.route),
                             text: 'BENEFICIOS',
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          CustomButton(
+                            onTap: () => _navigate(PostPage.route),
+                            text: 'NOTICIAS',
                           ),
                           SizedBox(
                             height: 16,

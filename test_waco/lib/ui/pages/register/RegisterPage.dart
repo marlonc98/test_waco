@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:test_waco/domain/blocs/localizations/AppLocalizations.dart';
 import 'package:test_waco/domain/blocs/user/UserProvider.dart';
+import 'package:test_waco/ui/pages/home/HomePage.dart';
 import 'package:test_waco/ui/pages/login/LoginPage.dart';
+import 'package:test_waco/ui/utils/ShowModal.dart';
 import 'package:test_waco/ui/utils/TextStyles.dart';
 import 'package:test_waco/ui/utils/Validators.dart';
 import 'package:test_waco/ui/widgets/CustomButton.dart';
@@ -17,29 +19,24 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   Map<String, dynamic> values = {};
-  late AppLocalizations localization;
+  bool active = true;
 
   register() async {
-    if (_formKey.currentState!.validate()) {
+    active = true;
+    if (_formKey.currentState!.validate() && active) {
+      active = false;
       final userProvider = Provider.of<UserProvider>(context, listen: false);
-      /*dynamic user = await userProvider.login(values);
+      User? user =
+          await userProvider.register(values['email'], values['password']);
       if (user == null) {
-        //error
-        setState(() {
-          activeForm = true;
-        });
+        active = true;
         ShowModal.showSnackBar(
-            context: context,
-            error: true,
-            text: localization.translate(
-                keyText: KeyWordsLocalization.loginWrongCredentials));
+            context: context, error: true, text: 'Error al crear usuario');
+        active = false;
       } else {
         //done
-        if (user.firstLogin)
-          Navigator.of(context).popAndPushNamed(NewPassword.route);
-        else
-          Navigator.of(context).popAndPushNamed(PinCreationPage.route);
-      }*/
+        Navigator.of(context).popAndPushNamed(HomePage.route);
+      }
     }
   }
 

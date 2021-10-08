@@ -5,10 +5,10 @@ import 'package:test_waco/ui/utils/Constants.dart';
 typedef VoidCallback OnPageChange(int page);
 
 class Carrousel extends StatefulWidget {
-  List<Widget> items;
-  bool autoplay, showName;
-  double heigth;
-  Function(int)? onPageChange;
+  final List<Widget> items;
+  final bool autoplay, showName;
+  final double heigth;
+  final Function(int)? onPageChange;
   Carrousel(
       {Key? key,
       this.onPageChange,

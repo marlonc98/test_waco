@@ -222,14 +222,19 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       IconButton(
-                          onPressed: () => launch('https://www.instagram.com/waconomads'),
+                          onPressed: () =>
+                              launch('https://www.instagram.com/waconomads'),
                           icon: SvgPicture.asset('assets/instagram.svg')),
                       Flexible(
                           child: Container(
                               margin: EdgeInsets.only(left: 16, right: 16),
                               width: MediaQuery.of(context).size.width,
                               child: CustomButton(
-                                onTap: () => Navigator.of(context).pushNamed(WebViewPage.route, arguments: WebViewPage(url: 'https://wacoservices.com/en/home',)),
+                                onTap: () => Navigator.of(context).pushNamed(
+                                    WebViewPage.route,
+                                    arguments: WebViewPage(
+                                      url: 'https://wacoservices.com/en/home',
+                                    )),
                                 text: 'Conocer más',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 18),
@@ -237,6 +242,11 @@ class _HomePageState extends State<HomePage> {
                               )))
                     ],
                   ),
+                ),
+                SizedBox(height: 80,),
+                SvgPicture.asset(
+                  'assets/logo_horizontal.svg',
+                  height: 60,
                 )
               ],
             ),

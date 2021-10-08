@@ -17,7 +17,6 @@ class AppLocalizations {
   Future<bool> load() async {
     String jsonString = await rootBundle.loadString(
         'assets/languages/es.json');
-        print(jsonString);
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     _localizedStrings =
         jsonMap.map((key, value) => MapEntry(key, value.toString()));
@@ -33,7 +32,6 @@ class AppLocalizations {
       try {
         string = string.replaceAll('{' + key + '}', '${values[key]}');
       } catch (e) {
-        print(e);
       }
     }
     return string;
